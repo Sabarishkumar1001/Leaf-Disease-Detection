@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Disease Detection</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1600337546483-99c99f758b42?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Background image */
+            background-size: cover; /* Cover entire screen */
+            font-family: Arial, sans-serif; /* Change font */
+            text-align: center; /* Center text */
+            padding-top: 50px; /* Add padding to top */
+        }
+        h1 {
+            color: #007bff; /* Blue color for heading */
+            font-size: 48px; /* Increase font size */
+            margin-bottom: 20px; /* Add space below heading */
+        }
+        p {
+            color: #333; /* Dark grey text color */
+            font-size: 24px; /* Increase font size */
+            margin-bottom: 40px; /* Add space below paragraph */
+        }
+        form {
+            margin: 0 auto; /* Center form horizontally */
+            max-width: 400px; /* Limit form width */
+            padding: 20px; /* Add padding */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px; /* Add border radius */
+        }
+        label {
+            display: block; /* Display label on a new line */
+            margin-bottom: 10px; /* Add space below label */
+            font-size: 20px; /* Increase font size */
+            color: #333; /* Dark grey text color */
+        }
+        input[type="file"] {
+            margin-bottom: 20px; /* Add space below input */
+        }
+        button[type="submit"] {
+            background-color: #007bff; /* Blue color for button */
+            color: white; /* White text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Add padding */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Add pointer cursor */
+            transition: background-color 0.3s; /* Smooth transition */
+            font-size: 20px; /* Increase font size */
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Leaf Disease Detection</h1>
+    <p>Upload an image of a leaf to predict if it has any disease.</p>
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+        <label for="file">Select an image:</label>
+        <input type="file" name="file" id="file">
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

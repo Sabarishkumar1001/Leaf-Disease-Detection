@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        .result-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        .result-container h2,
+        .result-container h3 {
+            text-align: center;
+        }
+
+        .precaution-list {
+            margin-top: 20px;
+            padding-left: 0;
+            list-style-type: none; /* Removed bullet points */
+        }
+
+        .precaution-list li {
+            text-align: justify; /* Justified text */
+            margin-bottom: 10px; /* Added space between measures */
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em; /* Increased font size */
+        }
+    </style>
+
+    <div class="result-container">
+        <h2>Prediction Result</h2>
+        <p><strong>Predicted Disease:</strong> {{ label }}</p>
+        <h3>Precautionary Measures:</h3>
+        <ul class="precaution-list">
+            {% for measure in measures %}
+                <li>{{ measure }}</li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{{ url_for('home') }}">Go back</a>
+    </div>
+{% endblock %}
